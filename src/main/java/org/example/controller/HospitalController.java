@@ -25,4 +25,12 @@ public class HospitalController {
     public Patient getPatientById(int id){return patientService.getPatientById(id);}
 
     public List<Patient> filterByDiagnosis(String diagnosis){return patientService.filterByDiagnosis(diagnosis);}
+
+    public void prescribeMedicine(int patientId, Medicine medicine){patientService.prescribeMedicine(patientId,medicine);}
+
+    public List<Patient> filterByMedicineAndIllness(String illness){return patientService.filterByMedicineAndIllness(illness);}
+
+    public List<Medicine> sortProducts(int clientId){return patientService.sortProducts(clientId);}
+
+    public List<Medicine> sortProductsDescending(int clientId){return patientService.sortProductsDescending(clientId);}
 }

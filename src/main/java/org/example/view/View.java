@@ -13,7 +13,7 @@ public class View {
         Scanner scanner = new Scanner(System.in);
         boolean continueLoop = true;
         while (continueLoop) {
-            System.out.println("Select an option: \n1.Add medicine\n2.Delete medicine\n3.Update medicine\n4.Get medicine by id\n5.Add patient\n6.Delete patient\n7.Update patient\n8.Get patient by id\n9. Filter patients by diagnosis\n10.to do\n11.to do\n12.to do\n13.Exit");
+            System.out.println("Select an option: \n1.Add medicine\n2.Delete medicine\n3.Update medicine\n4.Get medicine by id\n5.Add patient\n6.Delete patient\n7.Update patient\n8.Get patient by id\n9. Filter patients by diagnosis\n10.Prescribe medicine\n11.Filter patients by medicine for illness \n12. Sort medicines of client\n13.Exit");
             String option = scanner.nextLine();
 
             switch(option){
@@ -104,34 +104,34 @@ public class View {
                     break;
 
                 case "10":
-//                    int idBought=readProductId(scanner);
-//                    int idBuyer=readClientId(scanner);
-//                    Product product1=shopController.getProductById(idBought);
-//                    shopController.buyProduct(idBuyer,product1);
+                    int idPrescribed=readProductId(scanner);
+                    int idPatient=readClientId(scanner);
+                    Medicine product1=hospitalController.getProductById(idPrescribed);
+                    hospitalController.prescribeMedicine(idPatient,product1);
                     break;
 
                 case "11":
-//                    String findSeason=readProductSeason(scanner);
-//                    List<Client> clients=shopController.filterByProductAndSeason(Season.valueOf(findSeason));
-//                    for (Client client1:clients)
-//                        System.out.println(client1.getName());
+                    String findIllness=readProductIllness(scanner);
+                    List<Patient> clients=hospitalController.filterByMedicineAndIllness(findIllness);
+                    for (Patient client1:clients)
+                        System.out.println(client1.getName());
                     break;
 
                 case "12":
-//                    int choice=readChoiceId(scanner);
-//                    if (choice==1){
-//                        int clientId=readClientId(scanner);
-//                        List<Product> products=shopController.sortProducts(clientId);
-//                        for (Product product2:products)
-//                            System.out.println(product2.getName());
-//                    }
-//
-//                    if (choice==2){
-//                        int clientId=readClientId(scanner);
-//                        List<Product> products=shopController.sortProductsDescending(clientId);
-//                        for (Product product2:products)
-//                            System.out.println(product2.getName());
-//                    }
+                    int choice=readChoiceId(scanner);
+                    if (choice==1){
+                        int clientId=readClientId(scanner);
+                        List<Medicine> products=hospitalController.sortProducts(clientId);
+                        for (Medicine product2:products)
+                            System.out.println(product2.getName());
+                    }
+
+                    if (choice==2){
+                        int clientId=readClientId(scanner);
+                        List<Medicine> products=hospitalController.sortProductsDescending(clientId);
+                        for (Medicine product2:products)
+                            System.out.println(product2.getName());
+                    }
 
                     break;
 
